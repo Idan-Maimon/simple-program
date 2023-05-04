@@ -1,0 +1,37 @@
+import React, { useEffect, useState } from 'react';
+function BarMenue(){
+    let displayData
+    function pullJson() {
+        fetch ("http://localhost:5000/drinks")
+        .then(response => response.json())
+        .then(responseData => {
+            displayData = responseData.drinks.map(function(drink) {
+                return (
+                    <div>
+                    <label>Drink:  </label>
+                    <input type="text" value={drink.name}/>
+                    <label>Description:  </label>
+                    <input type="text" value={drink.description}/>
+                    <label>Id:  </label>
+                    <input type="text" value={drink.id}/>
+                    {/* <button onClick={transferValue}> Click Me</button> */}
+                  </div>
+                )
+            })
+            getDrinks(displayData)
+            // console.log(responseData)
+
+    })
+}
+useEffect(() => {pullJson()})
+const [drinks, getDrinks] = useState()
+return (
+    <div className="App">
+      <h1>Menue</h1>
+      {drinks}
+    </div>
+  );
+
+
+}
+export default BarMenue;

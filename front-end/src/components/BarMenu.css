@@ -1,0 +1,88 @@
+/* CSS for bar menu app */
+
+.bar-menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+  }
+  
+  .drinks-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+  }
+  
+  .drink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .drink h3 {
+    margin: 0;
+  }
+  
+  .add-drink-container,
+  .delete-drink-container {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .add-drink-container input,
+  .delete-drink-container input {
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+  }
+  
+  .add-drink-container button {
+    background-color: #4caf;
+  }
+  .delete-drink-container button {
+    background-color: rgb(228, 49, 73);
+  }
+  .delete-drink-container {
+    margin-left: 20px; /* adjust as needed */
+  }
+  
+  .drink-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .drink-form label {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .drink-form input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .drink-form button {
+    background-color: #4caf;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+  }
+  

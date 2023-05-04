@@ -1,0 +1,53 @@
+import React, { useEffect, useState } from 'react';
+function BarMenu(){
+  function addDrink() {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        "name": "Zero",
+        "description": "No Sugar"
+       })
+     };
+
+     fetch('http://localhost:5000/drinks', requestOptions)
+     .then(response => response.json())
+     .then(data => this.setState({ postId: data.id }));
+  }
+    let displayData
+    function pullJson() {
+        fetch ("http://localhost:5000/drinks")
+        .then(response => response.json())
+        .then(responseData => {
+            displayData = responseData.drinks.map(function(drink) {
+                return (
+                    <div>
+                    <label>Drink:  </label>
+                    <input type="text" value={drink.name}/>
+                    <label>Description:  </label>
+                    <input type="text" value={drink.description}/>
+                    <label>Id:  </label>
+                    <input type="text" value={drink.id}/>
+                    {/* <button onClick={transferValue}> Click Me</button> */}
+                  </div>
+                )
+            })
+            getDrinks(displayData)
+            // console.log(responseData)
+
+    })
+  }
+
+useEffect(() => {pullJson()})
+useEffect(() => {addDrink()})
+const [drinks, getDrinks] = useState()
+return (
+    <div className="App">
+      <h1>Menu</h1>
+      {drinks}
+    </div>
+  );
+
+
+}
+export default BarMenu;

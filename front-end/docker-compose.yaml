@@ -1,0 +1,10 @@
+version: '3'
+services:
+  myapp:
+    image: localhost/nginx-frontend:v1.0
+    ports:
+      - "8080:80"
+    networks:
+      - myapp_net
+networks:
+  myapp_net:
