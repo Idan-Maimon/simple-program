@@ -11,6 +11,4 @@ RUN npm run build
 # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
 FROM nginx:1.19.0
 COPY --from=build-stage /app/build/ /usr/share/nginx/html
-ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
-LABEL name="nginx-frontend"
-LABEL version="v1.0"
+#ENTRYPOINT [ "nginx", "-g", "daemon off;" ]

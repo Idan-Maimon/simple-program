@@ -1,10 +1,29 @@
 version: '3'
-services:
-  myapp:
-    image: localhost/nginx-frontend:v1.0
-    ports:
-      - "8080:80"
-    networks:
-      - myapp_net
+
 networks:
   myapp_net:
+  
+services:
+  back:
+    image: localhost/flask-backend:v1.0
+    ports:
+      - "5000:5000"
+    volumes:
+      - /home/imaymon/git/simple-program/back-end/data.db:/data.db:Z
+    networks:
+      - myapp_net
+    aliases:
+      - flask-backend
+
+  front:
+    image: localhost/nginx-frontend:v1.1
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx-conf/nginx.conf:/etc/nginx/nginx.conf:Z
+    networks:
+      - myapp_net
+    aliases:
+      - nginx-frontend
+    links:
+      - back

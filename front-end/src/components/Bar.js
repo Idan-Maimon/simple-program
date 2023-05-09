@@ -19,7 +19,7 @@ function BarMenu() {
       })
     };
 
-    fetch('http://localhost:5000/drinks', requestOptions)
+    fetch('/api/drinks', requestOptions)
     .then(response => response.json())
     .then(data => {
       setPostId(data.id);
@@ -31,7 +31,7 @@ function BarMenu() {
 
 
   function getDrinks() {
-    fetch("http://localhost:5000/drinks")
+    fetch("/api/drinks")
       .then(response => response.json())
       .then(responseData => {
         setDrinks(responseData.drinks);
@@ -39,7 +39,7 @@ function BarMenu() {
   }
 
   function deleteDrink() {
-    fetch(`http://localhost:5000/drinks/${drinkId}`, { method: 'DELETE' })
+    fetch(`/api/drinks/${drinkId}`, { method: 'DELETE' })
       .then(response => response.json())
       .then(del => {
         setDeleteId(del.id);
